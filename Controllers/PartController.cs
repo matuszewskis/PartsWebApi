@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApi.Dtos;
-using WebApi.Repositories;
-using WebApi.Utils.Exceptions;
+using PartsWebApi.Dtos;
+using PartsWebApi.Repositories;
+using PartsWebApi.Utils.Exceptions;
 
-namespace WebApi.Controllers
+namespace PartsWebApi.Controllers
 {
     public class PartsController : ControllerBase
     {

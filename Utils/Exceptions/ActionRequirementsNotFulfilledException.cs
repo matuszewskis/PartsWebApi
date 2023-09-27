@@ -1,4 +1,4 @@
-﻿namespace WebApi.Utils.Exceptions
+﻿namespace PartsWebApi.Utils.Exceptions
 {
     public class ActionRequirementsNotFulfilledException : Exception
     {

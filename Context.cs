@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApi.Entities;
+using PartsWebApi.Entities;
 
-namespace WebApi
+namespace PartsWebApi
 {
     public class ApiContext : DbContext
     {

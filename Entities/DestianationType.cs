@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApi.Entities
+namespace PartsWebApi.Entities
 {
     public class DestinationType
     {

@@ -1,4 +1,4 @@
-﻿namespace WebApi.Utils.Exceptions
+﻿namespace PartsWebApi.Utils.Exceptions
 {
     using System;
 

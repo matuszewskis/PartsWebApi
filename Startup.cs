@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using WebApi.Repositories;
-using WebApi.Utils.Helpers;
+using PartsWebApi.Repositories;
+using PartsWebApi.Utils.Helpers;
 
-namespace WebApi
+namespace PartsWebApi
 {
     public class Startup
     {
@@ -21,7 +21,6 @@ namespace WebApi
 
             services.AddDbContext<ApiContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
             services.AddScoped<IPartRepository, PartRepository>();
             services.AddScoped<IPartHelper, PartHelper>();
 
@@ -34,6 +33,8 @@ namespace WebApi
             app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
+
+            app.UseAuthorization();
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>

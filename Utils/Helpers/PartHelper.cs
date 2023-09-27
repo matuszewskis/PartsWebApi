@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApi.Dtos;
-using WebApi.Entities;
-using WebApi.Utils.Exceptions;
+using PartsWebApi.Dtos;
+using PartsWebApi.Entities;
+using PartsWebApi.Utils.Exceptions;
 
-namespace WebApi.Utils.Helpers
+namespace PartsWebApi.Utils.Helpers
 {
     public interface IPartHelper
     {

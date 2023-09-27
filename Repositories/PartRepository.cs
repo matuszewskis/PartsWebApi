@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using WebApi.Dtos;
-using WebApi.Entities;
-using WebApi.Utils.Exceptions;
-using WebApi.Utils.Helpers;
+using PartsWebApi.Dtos;
+using PartsWebApi.Entities;
+using PartsWebApi.Utils.Exceptions;
+using PartsWebApi.Utils.Helpers;
 
-namespace WebApi.Repositories
+namespace PartsWebApi.Repositories
 {
     public interface IPartRepository
     {
@@ -36,17 +36,20 @@ namespace WebApi.Repositories
 
         public async Task<IEnumerable<PartDto>> GetAll()
         {
-            var entities = await _context.Parts.ToListAsync();
+            var entities = await _context.Parts
+                .Include(p => p.Destination)
+                .ToListAsync();
             return entities.Select(e => _mapper.Map<PartDto>(e));
         }
 
         public async Task<string> GetDestination(Guid partId)
         {
-            var e = await _context.DestinationTypes.ToListAsync();
-            var model = await _context.Parts
+            var entity = await _context.Parts
                 .Include(p => p.Destination)
                 .FirstOrDefaultAsync(p => p.Id == partId);
-            return model?.Destination.DestinationTypeId;
+
+            return entity?.Destination?.DestinationTypeId ??
+                   throw new EntityNotFoundException("Part with provided Id does not exist in database.");
         }
 
         public async Task AddPart(PartDto dto)
